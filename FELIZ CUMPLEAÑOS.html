@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Feliz cumpleaños VIVI</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fdf6e3; /* color hueso */
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            margin-top: 30px;
+            color: #d2691e;
+        }
+        .mensaje {
+            text-align: center;
+            font-size: 1.5em;
+            margin: 40px;
+            color: #333;
+        }
+        .imagen-final {
+            display: block;
+            margin: 50px auto;
+            width: 300px;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            opacity: 0.95;
+        }
+        .girasol {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://i.imgur.com/4h0d7ye.png'); /* girasol pequeño */
+            background-size: cover;
+            animation: caer 50s linear infinite;
+        }
+        @keyframes caer {
+            0% { top: -50px; transform: rotate(0deg); }
+            100% { top: 100vh; transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <h1>♡ Feliz Cumpleaños Vivi ♡</h1>
+    <div class="mensaje">
+        <!-- Aquí puedes escribir tu mensaje personalizado -->
+        <p>Vivi… más vale tarde que nunca jaja</p>
+<p>No sé por dónde empezar jaj, espero lo haya pasado bonito en su cumple, a veces soy muy descuidado y olvido las fecha importantes y que fecha más importante que su cumple, quería darle las gracias por ser como es con migo y con los demás, nunca había conocido alguien así, me siento muy afortunado haber coincidido con ud y tener la suerte de llamarla mi AMIGA, espero que nos llevemos muchos años o hasta que el universo o Dios nos permita conocernos y si talvez en el futuro ya no hablamos o talvez la vida nos lleve por caminos distintos, quiero que sepa que podrá contar con migo siempre, hablemos mucho o poco ahí estaré, el contar con ud como amiga me tranquiliza mucho 😊
+<p>Sin mas que añadir, escribiendo esto con una lagrimita :´)</p> <p>MUCHAS GRACIAS VIVI </p>
+<p>Feliz cumpleaños…..</p>
+    </div>
+    <img src="https://i.imgur.com/OFi8BKv.jpeg" class="imagen-final" alt="Imagen final">
+
+    <script>
+        // Crear girasoles animados
+        for (let i = 0; i < 30; i++) {
+            let girasol = document.createElement('div');
+            girasol.className = 'girasol';
+            girasol.style.left = Math.random() * window.innerWidth + 'px';
+            girasol.style.animationDuration = (5 + Math.random() * 5) + 's';
+            document.body.appendChild(girasol);
+        }
+    </script>
+</body>
+</html>
