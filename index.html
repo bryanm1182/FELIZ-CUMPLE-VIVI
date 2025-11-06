@@ -1,16 +1,22 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feliz cumpleaños VIVI</title>
+    
+    <!-- FUENTE COMIC NUEVE para iPhone -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #fdf6e3; /* color hueso */
-            font-family: "Comic Sans MS", cursive, sans-serif;
+            background-color: #fdf6e3;
+            /* Comic Neue funciona perfecto en iOS */
+            font-family: 'Comic Neue', "Comic Sans MS", cursive, sans-serif;
             overflow: hidden;
+            height: 100vh;
         }
         h1 {
             text-align: center;
@@ -34,39 +40,54 @@
             opacity: 0.95;
         }
         .girasol {
-            position: absolute;
+            position: fixed;     /* <-- cambiamos a fixed */
+            top: -100px;
             width: 50px;
             height: 50px;
-            background-image: url('https://i.imgur.com/4h0d7ye.png'); /* girasol pequeño */
+            background-image: url('https://i.imgur.com/4h0d7ye.png');
             background-size: cover;
-            animation: caer 50s linear infinite;
+            animation: caer linear infinite;
         }
         @keyframes caer {
-            0% { top: -50px; transform: rotate(0deg); }
-            100% { top: 100vh; transform: rotate(360deg); }
+            0%   { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(110vh) rotate(360deg); }
         }
     </style>
 </head>
 <body>
     <h1>♡ Feliz Cumpleaños Vivi ♡</h1>
     <div class="mensaje">
-        <!-- Aquí puedes escribir tu mensaje personalizado -->
         <p>Vivi… más vale tarde que nunca jaja</p>
-<p>No sé por dónde empezar jaj, espero lo haya pasado bonito en su cumple, a veces soy muy descuidado y olvido las fecha importantes y que fecha más importante que su cumple, quería darle las gracias por ser como es con migo y con los demás, nunca había conocido alguien así, me siento muy afortunado haber coincidido con ud y tener la suerte de llamarla mi AMIGA, espero que nos llevemos muchos años o hasta que el universo o Dios nos permita conocernos y si talvez en el futuro ya no hablamos o talvez la vida nos lleve por caminos distintos, quiero que sepa que podrá contar con migo siempre, hablemos mucho o poco ahí estaré, el contar con ud como amiga me tranquiliza mucho 😊
-<p>Sin mas que añadir, escribiendo esto con una lagrimita :´)</p> <p>MUCHAS GRACIAS VIVI </p>
-<p>Feliz cumpleaños…..</p>
+        <p>No sé por dónde empezar jaj, espero lo haya pasado bonito en su cumple, a veces soy muy descuidado y olvido las fecha importantes y que fecha más importante que su cumple, quería darle las gracias por ser como es con migo y con los demás, nunca había conocido alguien así, me siento muy afortunado haber coincidido con ud y tener la suerte de llamarla mi AMIGA, espero que nos llevemos muchos años o hasta que el universo o Dios nos permita conocernos y si talvez en el futuro ya no hablamos o talvez la vida nos lleve por caminos distintos, quiero que sepa que podrá contar con migo siempre, hablemos mucho o poco ahí estaré, el contar con ud como amiga me tranquiliza mucho 😊
+        <p>Sin mas que añadir, escribiendo esto con una lagrimita :´)</p> 
+        <p>MUCHAS GRACIAS VIVI </p>
+        <p>Feliz cumpleaños…..</p>
     </div>
     <img src="https://i.imgur.com/OFi8BKv.jpeg" class="imagen-final" alt="Imagen final">
 
     <script>
-        // Crear girasoles animados
-        for (let i = 0; i < 30; i++) {
-            let girasol = document.createElement('div');
-            girasol.className = 'girasol';
-            girasol.style.left = Math.random() * window.innerWidth + 'px';
-            girasol.style.animationDuration = (5 + Math.random() * 5) + 's';
-            document.body.appendChild(girasol);
+        // ====== GIRASOLES que cubren TODA la pantalla en iPhone ======
+        function crearGirasoles() {
+            const cantidad = 30;
+            for (let i = 0; i < cantidad; i++) {
+                let g = document.createElement('div');
+                g.className = 'girasol';
+                
+                // posición aleatoria en todo el ancho real
+                g.style.left = Math.random() * 100 + 'vw';
+                
+                // velocidad más lenta (12 a 20 segundos)
+                g.style.animationDuration = (12 + Math.random() * 8) + 's';
+                
+                // retraso aleatorio para que no caigan todos a la vez
+                g.style.animationDelay = Math.random() * 10 + 's';
+                
+                document.body.appendChild(g);
+            }
         }
+
+        // ejecutamos cuando la página ya está completamente cargada
+        window.addEventListener('load', crearGirasoles);
     </script>
 </body>
 </html>
